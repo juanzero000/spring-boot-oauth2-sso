@@ -1,0 +1,20 @@
+security:
+  user:
+    password: 12345678
+  oauth2:
+    client:
+      client-id: oauth2_client
+      client-secret: oauth2_client_secret
+      scope: read, write
+      auto-approve-scopes: .*
+      authorized-grant-types: authorization_code
+    authorization:
+      check-token-access: permitAll()
+server:
+  port: 8081
+  context-path: /authserver
+logging:
+  level:
+    org.springframework.security: DEBUG
+client:
+  url: http://localhost:8080

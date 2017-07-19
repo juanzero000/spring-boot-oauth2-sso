@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Oauth2 UI</title>
+    <link rel="stylesheet" th:href="@{/webjars/materializecss/0.99.0/css/materialize.min.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/material-design-icons/3.0.1/material-icons.css}"/>
+</head>
+<body>
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large waves-effect waves-light blue" href="/add"><i class="material-icons">add</i></a>
+</div>
+
+<div th:replace="fragments/header :: header"></div>
+
+<div class="row" th:each="note: ${notes}">
+    <div class="col s12 m8 offset-m2 l6 offset-l3">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title" th:text="${note.title}">Card Title</span>
+                <p th:text="${note.content}">I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" th:src="@{/webjars/jquery/2.2.1/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/materializecss/0.99.0/js/materialize.min.js}"></script>
+</body>
+</html>

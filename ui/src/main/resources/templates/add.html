@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add Note</title>
+    <link rel="stylesheet" th:href="@{/webjars/materializecss/0.99.0/css/materialize.min.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/material-design-icons/3.0.1/material-icons.css}"/>
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+<div class="row">
+    <form class="col s12" th:object="${note}" method="post" th:action="@{/add}">
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="title" type="text" data-length="50" th:field="*{title}" maxlength="50" class="validate" required="required"/>
+                <label for="title">Title</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="content" class="materialize-textarea" data-length="255" th:field="*{content}"
+                          maxlength="255" required="required"></textarea>
+                <label for="content">Textarea</label>
+            </div>
+        </div>
+        <button class="btn waves-effect waves-light blue lighten-1" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+        </button>
+    </form>
+</div>
+
+<script type="text/javascript" th:src="@{/webjars/jquery/2.2.1/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/materializecss/0.99.0/js/materialize.min.js}"></script>
+</body>
+</html>

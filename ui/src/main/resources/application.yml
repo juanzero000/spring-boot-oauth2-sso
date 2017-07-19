@@ -1,0 +1,20 @@
+auth-server: http://localhost:8081/authserver
+resource-server: http://localhost:8082/resource
+server:
+  port: 8080
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      client-id: oauth2_client
+      client-secret: oauth2_client_secret
+      access-token-uri: ${auth-server}/oauth/token
+      user-authorization-uri: ${auth-server}/oauth/authorize
+      scope: read, write
+      authorized-grant-types: authorization_code
+    resource:
+      token-info-uri: ${auth-server}/oauth/check_token
+logging:
+  level:
+    org.springframework.security: DEBUG
