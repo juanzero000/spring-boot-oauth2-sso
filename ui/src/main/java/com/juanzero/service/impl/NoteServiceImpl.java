@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 
+
 /**
  * Created by jjmendoza on 18/7/2017.
  */
@@ -21,6 +22,7 @@ public class NoteServiceImpl implements NoteService {
 
     @Value("${resource-server}/note")
     private String notesURL;
+
 
     @Override
     public Collection<NoteDTO> getAllNotes() {
@@ -34,3 +36,5 @@ public class NoteServiceImpl implements NoteService {
         return response.getBody();
     }
 }
+
+

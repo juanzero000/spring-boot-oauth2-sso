@@ -3,6 +3,7 @@ package com.juanzero.controller;
 import com.juanzero.dto.NoteDTO;
 import com.juanzero.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,7 @@ public class HomeController {
     }
 
     @RequestMapping("/add")
+    @PreAuthorize("hasRole('WRITER')")
     public String add(Model model) {
         model.addAttribute("note", new NoteDTO());
         return "add";

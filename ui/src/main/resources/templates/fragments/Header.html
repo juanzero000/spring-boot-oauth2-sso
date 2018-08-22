@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/logout}" method="post" id="userform" th:fragment="header">
+    <nav>
+        <div class="nav-wrapper blue lighten-1">
+            <a href="/" class="brand-logo">NeverNote</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a class="dropdown-button" href="#!" th:text="${#httpServletRequest.remoteUser}">Dropdown
+                    <i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a href="#" onclick="document.getElementById('userform').submit();"><i
+                        class="material-icons">power_settings_new</i></a></li>
+            </ul>
+        </div>
+    </nav>
+</form>
+</body>
+</html>
